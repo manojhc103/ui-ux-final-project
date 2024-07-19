@@ -29,4 +29,25 @@
         </div>
       </div>
 </body>
+<script>
+    let arr = JSON.parse(localStorage.getItem("users"))||[];
+    let form = document.getElementById("form");
+    let button = document.getElementById("btn");
+    button.addEventListener("click", userDetails);
+   
+    function userDetails(e) {
+      e.preventDefault();
+
+      let obj = {
+        name: document.getElementById("name").value,
+        mobile: document.getElementById("mobile").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+      };
+      arr.push(obj);
+      alert("Sighup successfull");
+      form.reset()
+      localStorage.setItem("users", JSON.stringify(arr));
+        }
+  </script>
 </html>
