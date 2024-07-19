@@ -23,4 +23,30 @@
         </div>
       </div>
 </body>
+<script>
+    let getdatafromUser = JSON.parse(localStorage.getItem("users")) || [];
+
+    let form = document.getElementById("login_form");
+
+    function detailsMatch(user) {
+      user.preventDefault();
+      let details = {
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+      };
+      let valuecheck = getdatafromUser.find(
+        (ele) =>
+          ele.email === details.email && ele.password === details.password
+      );
+      if (valuecheck) {
+        localStorage.setItem("loggeduser", JSON.stringify(valuecheck));
+        alert("Login success");
+        window.location.href = "home.html";
+      } else {
+        alert("Details not match");
+      }
+      form.reset();
+    }
+    document.getElementById("btn").addEventListener("click", detailsMatch);
+  </script>
 </html>

@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins" , sans-serif;
+  }
+  .main_container{
+
+    background: #7d2ae8;
+    /* padding: 0px 0px; */
+    height: 100vh;
+  
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color:aliceblue;
+    width: 100%;
+    margin: auto;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+}
+.logo img {
+    height: 50px; 
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px; 
+}
+.nav-links li {
+    margin: 10px;
+}
+.nav-links a {
+    text-decoration: none;
+    color: #7d2ae8;
+    font-weight: bold;
+}
+.nav-links a:hover {
+    text-decoration: underline;
+}
+.admin_logo {
+font-size: 17px;
+color: #7d2ae8;
+font-weight: bold;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+text-decoration: none;
+}
+.menu_icon{
+    display: none;
+}
+
+
+@media screen and (min-width:200px) and (max-width:1280px){
+    
+    .menu_icon{
+        display: flex;
+        font-size: 35px;
+        color: #7d2ae8;
+    }
+    .nav-links {
+        display: none;
+        
+    }
+    .admin_logo {
+        font-size: 25px;
+        color: #7d2ae8;
+  }
+}
