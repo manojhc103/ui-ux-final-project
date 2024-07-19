@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style1.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style1.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+  </head>
+  <body>
     <div class="main_container">
-        <nav class="navbar">
-            <div class="logo">
-              <img src="./logo" alt="Logo" />
-            </div>
-    
-            <ul class="nav-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="index.html">Login</a></li>
-              <li><a href="signup.html">Signup</a></li>
-            </ul>
-            <div class="admin">
-              <span class="admin_logo" id="login_user">👤- </span>
-            </div>
-            <span class="menu_icon">&#9776;</span>
-          </nav>
-    
-    <div class="hero_section">
+      <nav class="navbar">
+        <div class="logo">
+          <img src="./logo" alt="Logo" />
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="index.html">Login</a></li>
+          <li><a href="signup.html">Signup</a></li>
+        </ul>
+        <div class="admin">
+          <span class="admin_logo" id="login_user">👤- </span>
+        </div>
+        <span class="menu_icon">&#9776;</span>
+      </nav>
+
+      <div class="hero_section">
         <div class="hero-content">
           <h1>Explore the World</h1>
           <p>
@@ -34,6 +36,8 @@
           </p>
         </div>
       </div>
+      <!-- api call--------------------- -->
+      <div id="container"></div>
       <div class="contact_form">
         <div class="form_container">
           <div id="heading">
@@ -75,18 +79,78 @@
           </form>
         </div>
         <div class="img_container">
-          <img
-            src="./4849052.webp"
-            alt="img"
-          />
+          <img src="./4849052.webp" alt="img" />
         </div>
       </div>
+      <footer class="site_footer">
+        <div class="about">
+          <h3>About Us</h3>
+          <p>
+            Your company description goes here. manoh dfhfisj do consectetur
+            adipiscing elit.
+          </p>
+        </div>
+        <div class="footer_section_links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section contact">
+          <h3>Contact Us</h3>
+          <p>Email: info@example.com<br />Phone: +1234567890</p>
+        </div>
+      </footer>
     </div>
-</body>
-<script>
+  </body>
+  <script>
     let loggeduser = JSON.parse(localStorage.getItem("loggeduser"));
 
-let login_user = document.getElementById("login_user");
-login_user.innerHTML = `👨‍💼- ${loggeduser.name}`;
-</script>
+    let login_user = document.getElementById("login_user");
+    login_user.innerHTML = `👨‍💼- ${loggeduser.name}`;
+
+    let cont = document.getElementById("container");
+    let arr = [];
+    async function getValuefromApi() {
+      try {
+        let response = await axios.get("https://fakestoreapi.com/products");
+        console.log(response.data);
+        arr = response.data;
+        displayData();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getValuefromApi();
+    function displayData() {
+      cont.innerHTML = "";
+      arr.map((element) => {
+        let card = document.createElement("div");
+        let image = document.createElement("img");
+        image.src = element.image;
+        let title = document.createElement("h3");
+        title.innerText = element.title;
+        let price = document.createElement("p");
+        price.innerText = `₹${element.price}`;
+        let description = document.createElement("p");
+        description.innerText = element.description;
+        let rate = document.createElement("h3");
+        rate.innerText = `Rating: ${element.rating.rate}`;
+        let buy=document.createElement("button");
+        buy.innerText="Buy Now";
+        buy.id="buy"
+        let add=document.createElement("button");
+        add.innerText="Add to Cart";
+        add.id="add"
+
+
+        card.append(image, title, price, description, rate,add,buy);
+        cont.append(card);
+      });
+    }
+    displayData();
+  </script>
 </html>

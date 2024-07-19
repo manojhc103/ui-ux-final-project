@@ -25,7 +25,8 @@
 
 }
 .logo img {
-    height: 50px; 
+    height: 50px;
+          width: 50px;
 }
 .nav-links {
     list-style: none;
@@ -186,6 +187,78 @@ label{
     border-color: rgb(201, 188, 188);
 }
 
+.site_footer {
+    background-color:aliceblue;
+    color: #7d2ae8;
+    font-weight: bold;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 30px;
+   
+}
+/* .site_footer div{
+    border: 1px solid black;
+} */
+.site_footer h3{
+    margin: 10px;
+}
+.footer_section_links ul li{
+    list-style: none;
+    margin: 5px;
+    color: #7d2ae8;
+}
+
+#container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:20px;
+    width: 96%;
+    margin: auto;
+}
+#container div{
+    background-color:aliceblue;
+    padding: 10px;
+    text-align: center;
+    border-radius: 55px 0px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 
+    0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    transition: 0.6s ease-in-out;
+}
+img{
+    width: 40%;
+    height: 22vh;
+}
+#container div:hover{
+    transform: scale(1.025);
+    cursor: pointer;
+  
+}
+#buy{
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(250, 62, 62);
+    color: aliceblue;
+    font-size: 15px;
+}
+#add{
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #7d2ae8;
+    color: aliceblue;
+    font-size: 15px;
+}
+#buy:hover{
+    cursor: pointer;
+
+}
+#add:hover{
+    cursor: pointer;
+}
 
 @media screen and (min-width:200px) and (max-width:1280px){
     
@@ -217,4 +290,23 @@ label{
     border-bottom: none;
     
 }
+.site_footer {
+    grid-template-columns: repeat(1,1fr);
+}
+
+
+}
+@media screen and (min-width:200px) and (max-width:768px){
+    #container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        width: 90%;      
+    }
+}
+@media screen and (min-width:768px) and (max-width:1280px){
+    #container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 90%;      
+    }
 }
