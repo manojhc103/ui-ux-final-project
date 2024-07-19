@@ -50,9 +50,19 @@ color: #7d2ae8;
 font-weight: bold;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 text-decoration: none;
+text-align: center;
 }
 .menu_icon{
     display: none;
+}
+.logout_btn{
+    padding: 10px;
+    background-color: #7d2ae8;
+    border: none;
+    border-radius: 5px;
+    color: aliceblue;
+    font-size: 15px;
+    font-weight: bold;
 }
 .hero_section{
     display: flex;
@@ -239,7 +249,8 @@ img{
     padding: 10px;
     border-radius: 5px;
     border: none;
-    background-color: rgb(250, 62, 62);
+    
+    background-color: rgb(237, 60, 60);
     color: aliceblue;
     font-size: 15px;
 }
@@ -254,10 +265,12 @@ img{
 }
 #buy:hover{
     cursor: pointer;
+    background-color: rgb(99, 6, 6);
 
 }
 #add:hover{
     cursor: pointer;
+    background-color: #48079d;
 }
 
 @media screen and (min-width:200px) and (max-width:1280px){
@@ -269,6 +282,17 @@ img{
     }
     .nav-links {
         display: none;
+        
+    }
+    .logout{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        /* border: 1px solid red; */
+        justify-content: space-around;
+        align-items: center;
+        gap: 10px;
+        size: 10px;
         
     }
     .admin_logo {
