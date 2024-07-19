@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="main_container">
-        <div class="form_div">
-          <h1>Signup</h1>
-          <form class="form"id="form">
-            <input type="text" placeholder="Enter Your Name" id="name" /><br />
-            <input
-              type="text"
-              placeholder="Enter Your Mobile number"
-              id="mobile"
-            /><br />
-            <input type="email" placeholder="Enter Your Email" id="email" /><br />
-            <input
-              type="password"
-              placeholder="Enter Your password"
-              id="password"
-            /><br />
-            <button id="btn">Submit</button>
-            <p>Already have an account?<a href="index.html">Login here</a></p>
-          </form>
-        </div>
+      <div class="form_div">
+        <h1>Signup</h1>
+        <form class="form" id="form">
+          <input type="text" placeholder="Enter Your Name" id="name" /><br />
+          <input
+            type="text"
+            placeholder="Enter Your Mobile number"
+            id="mobile"
+          /><br />
+          <input type="email" placeholder="Enter Your Email" id="email" /><br />
+          <input
+            type="password"
+            placeholder="Enter Your password"
+            id="password"
+          /><br />
+          <button id="btn">Submit</button>
+          <p>Already have an account?<a href="index.html">Login here</a></p>
+        </form>
       </div>
-</body>
-<script>
-    let arr = JSON.parse(localStorage.getItem("users"))||[];
+    </div>
+  </body>
+  <script>
+    let arr = JSON.parse(localStorage.getItem("users")) || [];
     let form = document.getElementById("form");
     let button = document.getElementById("btn");
     button.addEventListener("click", userDetails);
-   
+
     function userDetails(e) {
       e.preventDefault();
 
@@ -46,8 +46,9 @@
       };
       arr.push(obj);
       alert("Sighup successfull");
-      form.reset()
+      form.reset();
+      window.location.href = "index.html";
       localStorage.setItem("users", JSON.stringify(arr));
-        }
+    }
   </script>
 </html>
