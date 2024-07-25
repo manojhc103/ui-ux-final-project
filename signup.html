@@ -44,6 +44,10 @@
         email: document.getElementById("email").value,
         password: document.getElementById("password").value,
       };
+      if (obj.email == "" || obj.password == "" || obj.name == "" || obj.mobile == "") {
+        alert("Please Enter Your Details");
+        return;  
+      }
       arr.push(obj);
       alert("Sighup successfull");
       form.reset();
